@@ -38,8 +38,9 @@ while True:
 
 sorted_repos = sorted(all_repos, key=itemgetter('created_at'), reverse=True)
 
-readme_content = """
+# Static README content you want to keep above your repo list
 
+readme_content = """
 # Hi, I'm Sean 👋
 
 <table>
@@ -75,7 +76,7 @@ I have a demonstrated proficiency in software development, with a proven track r
 """
 
 repos_per_page = 30
-total_pages = (len(sorted_repos) + repos_per_page - 1) // repos_per_page  # Calculate total pages
+total_pages = (len(sorted_repos) + repos_per_page - 1) // repos_per_page
 
 for page_num in range(total_pages):
     readme_content += f"## Page {page_num + 1}\n\n"
