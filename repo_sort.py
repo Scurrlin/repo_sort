@@ -86,9 +86,33 @@ for page_num in range(total_pages):
         language = repo['language']
         language_color = language_colors.get(language, "")
 
+        # Handle forked repos
+        if repo['fork']:
+            # Check if parent info is available
+            if 'parent' not in repo:
+                # Make additional request to get the full repo details
+                repo_details_url = repo['url']
+                repo_details_response = requests.get(repo_details_url, auth=(username, token))
+                
+                if repo_details_response.status_code == 200:
+                    repo_details = repo_details_response.json()
+                    if 'parent' in repo_details:
+                        parent = repo_details['parent']['full_name']
+                        fork_info = f"🍴 Forked from [{parent}](https://github.com/{parent})"
+                    else:
+                        fork_info = "🍴 Forked from unknown"
+                else:
+                    print(f"Failed to fetch parent details: {repo_details_response.status_code}")
+                    fork_info = "🍴 Forked from unknown"
+            else:
+                parent = repo['parent']['full_name']
+                fork_info = f"🍴 Forked from [{parent}](https://github.com/{parent})"
+        else:
+            fork_info = ""
+
         # Add the repository to the README content
         readme_content += f"### [{repo['name']}]({repo['html_url']})\n"
-        readme_content += f"{language_color} {language} • Created on {formatted_date}\n\n"
+        readme_content += f"{language_color} {language} • Created on {formatted_date}  \n{fork_info}\n\n"
 
         # Omit separator if it's the last repository on the page
         if index < len(page_repos) - 1:
