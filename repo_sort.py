@@ -46,13 +46,12 @@ sorted_repos = sorted(all_repos, key=itemgetter('created_at'), reverse=True)
 readme_content = """
 <a name="top"></a>
 
-# Hi, I'm Sean 👋
+# Hi, I'm <Name> 👋
 
 <table>
 <tr>
 <td>
-I have a demonstrated proficiency in software development, with a proven track record of delivering high-quality solutions from ideation to deployment. My expertise includes developing and optimizing web applications, enhancing data pipelines, and implementing analytics to generate actionable insights. I possess a deep understanding of full-stack development, particularly in Python, JavaScript, React.js, and database management. My polished communication skills enable me to effectively articulate complex technical strategies.
-</td>
+Give yourself a snappy introduction here!
 </tr>
 </table>
 
