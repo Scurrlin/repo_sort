@@ -17,7 +17,7 @@ pip3 install requests python-dotenv
 For the script itself, you can copy the code directly from the repo_sort.py file above or the snippet below:
 
 <details>
-    <summary>repo_sort.py</summary>
+    <summary><code>repo_sort.py</code></summary>
 
     ```python
     import requests
