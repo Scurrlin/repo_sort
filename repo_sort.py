@@ -51,7 +51,7 @@ readme_content = """
 <table>
 <tr>
 <td>
-Give yourself a snappy introduction here!
+Introduce yourself here!
 </tr>
 </table>
 
