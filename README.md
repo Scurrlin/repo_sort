@@ -2,21 +2,9 @@
 
 ![Repo Sort Banner](./assets/RS_meme1.jpg)
 
-Skip to Snippets
-
-Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. Though I do love GitHub and think it is a wonderful platform, I find the inability to select a default sort parameter for your repos surprising. Additionally, there are only three sorting methods to choose from:
-
-1.) Last updated (locked default setting)
-2.) Name
-3.) Stars
+Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. Though I do love GitHub and think it is a wonderful platform, I find the inability to select a default sort parameter for your repos surprising.
 
 While this is certainly a minor problem, I've created a lightweight script that uses your profile readme to display your repositories using altrenative sorting options.
-
-**But why, Sean?**
-
-I'm glad you asked! I recently retired some older projects of mine and part of the process involved removing the live link from their respective READMEs. Upon doing so, because "Last updated" is the default sorting option for your repositories, the older repos jumped up to the top of the list.
-
-Now in the event that someone wants to check through my work on GitHub, the first project they will see is one of my earliest, least polished efforts. Again, this isn't the end of the world, but it's also not ideal.
 
 **Getting Started**
 
@@ -165,12 +153,13 @@ You can copy the code directly from the repo_sort.py file above or the snippet b
     subprocess.run(["git", "push"], check=True)
 
     print("Changes committed and pushed to GitHub.")
-    
-</details>```
+    ```
+
+</details>
 
 **Set Up Environment Variables**
 
-Create a new file named `.env` in the root of your project and add the following content:
+Create a new file named `.env` in the root of your project and add the following two variables. :
 
 ```env
 GITHUB_USERNAME=
