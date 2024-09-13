@@ -6,9 +6,15 @@ Okay maybe the world wouldn't look EXACTLY like that if you could sort your repo
 
 While this is certainly a minor problem, I've created a lightweight script that uses your profile readme to display your repositories using altrenative sorting options.
 
-**Getting Started**
+## Getting Started
 
-You can copy the code directly from the repo_sort.py file above or the snippet below:
+For this script to run properly, you'll need the `requests` and `python-dotenv` modules. You can install them using the following command:
+
+```bash
+pip3 install requests python-dotenv
+```
+
+For the script itself, you can copy the code directly from the repo_sort.py file above or the snippet below:
 
 <details>
     <summary>repo_sort.py</summary>
@@ -157,9 +163,9 @@ You can copy the code directly from the repo_sort.py file above or the snippet b
 
 </details>
 
-**Set Up Environment Variables**
+## Setting Up Environment Variables
 
-Create a new file named `.env` in the root of your project and add the following two variables. :
+Create a new file named `.env` in the root of your project and add the following two variables:
 
 ```env
 GITHUB_USERNAME=
