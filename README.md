@@ -192,7 +192,7 @@ To get your GitHub Personal Access Token, follow the steps below:
 
 ## Running the Script
 
-After you've updated the code to your liking and added in your environment variables, run the following command to run the script:
+After you've updated the code to your liking and added in your environment variables, use the following command to run the script:
 
 ```bash
 python3 repo_sort.py
