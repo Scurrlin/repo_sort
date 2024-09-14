@@ -14,7 +14,9 @@ For this script to run properly, you'll need the `requests` and `python-dotenv` 
 pip3 install requests python-dotenv
 ```
 
-For the script itself, you can copy the code directly from the repo_sort.py file above or the snippet below:
+For the script itself, you can copy the code directly from the repo_sort.py file above or the snippet below. It is also worth noting that this script is written to display repos by date created starting with the most recent.
+
+If you want to sort by another method like number of commits, you'll need to update that part of the code accordingly.
 
 <details>
 <summary><code>repo_sort.py</code></summary>
@@ -165,9 +167,24 @@ print("Changes committed and pushed to GitHub.")
 
 ## Setting Up Environment Variables
 
-Create a new file named `.env` in the root of your project and add the following two variables:
+ Once you've personalized the script, you'll need to set up your environment variables. Create a new file named `.env` in the root of your project and add the following two variables:
 
 ```env
 GITHUB_USERNAME=
 GITHUB_TOKEN=
 ```
+
+To get your GitHub Personal Access Token, follow the steps below:
+
+<details>
+<summary>Generate a GitHub Personal Access Token</summary>
+
+1. Log in to your **GitHub** account.
+2. Click on your **profile picture**, then select **Settings** from the dropdown menu.
+3. On the left-hand sidebar, scroll down and click on **Developer settings**.
+4. Under **Developer settings**, click on **Personal access tokens**.
+5. Select **Tokens (classic)**.
+6. Click **Generate new token**.
+7. Set the **token name**, select the `repo` and `read:user` **permissions**, and finally click **Generate token**.
+8. Copy the token immediately as you won’t be able to view it again later.
+</details>
