@@ -4,7 +4,7 @@
 
 Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. While I love GitHub and think it’s a wonderful platform, I'm surprised that there’s no option to set default sorting preferences.
 
-Even though this is a minor problem, I've created a lightweight script that uses your profile readme to display your repos using altrenative sorting options.
+Even though this is a minor problem, I've created a lightweight script that uses your profile `README.md` to display your repos using alternative sorting methods.
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ pip3 install requests python-dotenv
 
 For the script itself, you can copy the code directly from the repo_sort.py file above or the snippet below. It is also worth noting that this script is written to display repos by date created starting with the most recent.
 
-If you want to sort by another method like number of commits, you'll need to update that part of the code accordingly.
+If you want to sort by another method like number of commits, you'll need to update that part of the code.
 
 <details>
 <summary><code>repo_sort.py</code></summary>
@@ -198,4 +198,4 @@ After you've updated the code to your liking and added in your environment varia
 python3 repo_sort.py
 ```
 
-Keep in mind that running this script will automatically commit the list of sorted repos to your profile readme. If that is something you want to change, you'll need to update the code accordingly.
+Keep in mind that running this script will automatically commit and push the updated list of sorted repos to your profile `README.md`. If you'd like to change this behavior, you can modify the commit/push section of the code.
