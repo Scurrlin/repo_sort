@@ -16,7 +16,7 @@ pip3 install requests python-dotenv
 
 For the script itself, you can copy the code directly from the repo_sort.py file above or the snippet below. It is also worth noting that this script is written to display repos by date created starting with the most recent.
 
-If you want to sort by another method like number of commits, you'll need to update that part of the code.
+If you want to sort by another method like number of commits, you'll need to update that part of the code accordingly.
 
 <details>
 <summary><code>repo_sort.py</code></summary>
