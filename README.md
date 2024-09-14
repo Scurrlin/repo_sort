@@ -2,9 +2,9 @@
 
 ![Repo Sort Banner](./assets/RS_meme1.jpg)
 
-Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. Though I do love GitHub and think it is a wonderful platform, I find the inability to select a default sort parameter for your repos surprising.
+Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. While I love GitHub and think it’s a wonderful platform, I'm surprised that there’s no option to set default sorting preferences for your repositories.
 
-While this is certainly a minor problem, I've created a lightweight script that uses your profile readme to display your repositories using altrenative sorting options.
+Even though this is a minor problem, I've created a lightweight script that uses your profile readme to display your repos using altrenative sorting options.
 
 ## Getting Started
 
@@ -70,7 +70,7 @@ sorted_repos = sorted(all_repos, key=itemgetter('created_at'), reverse=True)
 readme_content = """
 <a name="top"></a>
 
-# Hi, I'm <Name> 👋
+# Hi, I'm <Your Name> 👋
 
 <table>
 <tr>
@@ -167,7 +167,7 @@ print("Changes committed and pushed to GitHub.")
 
 ## Setting Up Environment Variables
 
- Once you've personalized the script, you'll need to set up your environment variables. Create a new file named `.env` in the root of your project and add the following two variables:
+Once you've personalized the script, you'll need to set up your environment variables. Create a new file named `.env` in the root of your project and add the following two variables:
 
 ```env
 GITHUB_USERNAME=
@@ -189,3 +189,13 @@ To get your GitHub Personal Access Token, follow the steps below:
 8. Copy the token immediately as you won’t be able to view it again later.
 
 </details>
+
+## Running the Script
+
+After you've updated the code to your liking and added in your environment variables, run the following command to run the script:
+
+```bash
+python3 repo_sort.py
+```
+
+Keep in mind that running this script will automatically commit the list of sorted repos to your profile readme. If that is something you want to change, you'll need to update the code accordingly.
