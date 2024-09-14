@@ -2,7 +2,7 @@
 
 ![Repo Sort Banner](./assets/RS_meme1.jpg)
 
-Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. While I love GitHub and think it’s a wonderful platform, I'm surprised that there’s no option to set default sorting preferences for your repositories.
+Okay maybe the world wouldn't look EXACTLY like that if you could sort your repositories, but you get the idea. While I love GitHub and think it’s a wonderful platform, I'm surprised that there’s no option to set default sorting preferences.
 
 Even though this is a minor problem, I've created a lightweight script that uses your profile readme to display your repos using altrenative sorting options.
 
