@@ -179,7 +179,6 @@ To get your GitHub Personal Access Token, follow the steps below:
 <details>
 <summary>Generate a GitHub Personal Access Token</summary>
 
-```
 1. Log in to your **GitHub** account.
 2. Click on your **profile picture**, then select **Settings** from the dropdown menu.
 3. On the left-hand sidebar, scroll down and click on **Developer settings**.
@@ -188,6 +187,5 @@ To get your GitHub Personal Access Token, follow the steps below:
 6. Click **Generate new token**.
 7. Set the **token name**, select the `repo` and `read:user` **permissions**, and finally click **Generate token**.
 8. Copy the token immediately as you won’t be able to view it again later.
-```
 
 </details>
