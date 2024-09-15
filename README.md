@@ -167,7 +167,7 @@ print("Changes committed and pushed to GitHub.")
 
 ## Setting Up Environment Variables
 
-Once you've personalized the script, you'll need to set up your environment variables. Create a new file named `.env` in the root of your project and add the following two variables:
+Once you've personalized the script, you'll need to set up your environment variables. Create a new file named `.env` in the root of your project and add the following two variables. Don't forget to include them in your `.gitnore`!
 
 ```env
 GITHUB_USERNAME=
