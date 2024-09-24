@@ -20,7 +20,8 @@ language_colors = {
     "JavaScript": "🟡",
     "Python": "🔵",
     "TypeScript": "🔵",
-    "PHP": "🟣"
+    "PHP": "🟣",
+    "C++": "🔴"
 }
 
 while True:
