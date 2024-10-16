@@ -40,15 +40,14 @@ page = 1
 per_page = 30
 
 language_colors = {
-    "HTML": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#e34c26" /></svg>',
-    "CSS": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#563d7c" /></svg>',
-    "JavaScript": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#f1e05a" /></svg>',
-    "Python": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#3572A5" /></svg>',
-    "TypeScript": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#3178c6" /></svg>',
-    "PHP": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#4F5D95" /></svg>',
-    "C++": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#f34b7d" /></svg>',
-    "C#": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#178600" /></svg>',
-    "C": '<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="6" fill="#555555" /></svg>',
+    "HTML": "🔴",
+    "CSS": "🟣",
+    "JavaScript": "🟡",
+    "Python": "🔵",
+    "TypeScript": "🔵",
+    "PHP": "🟣",
+    "C++": "🔴",
+    "C#": "🟢"
 }
 
 while True:
