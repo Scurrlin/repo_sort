@@ -40,11 +40,11 @@ page = 1
 per_page = 30
 
 language_colors = {
-    "HTML": "🔴",
+    "HTML": "🟠",
     "CSS": "🟣",
     "JavaScript": "🟡",
-    "Python": "🔵",
     "TypeScript": "🔵",
+    "Python": "🔵",
     "PHP": "🟣",
     "C++": "🔴",
     "C#": "🟢"
