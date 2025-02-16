@@ -51,11 +51,12 @@ language_colors = {
     "C": "⚪️"
 }
 
+# Fetch all repos
 while True:
     response = requests.get(
-        f"{url}?page={page}&per_page={per_page}", auth=(username, token)
+        f"{url}?page={page}&per_page={per_page}",
+        auth=(username, token)
     )
-
     if response.status_code == 200:
         repos = response.json()
         if repos:
@@ -63,23 +64,24 @@ while True:
             page += 1
         else:
             break
-
     else:
         print(f"Failed to fetch repositories: {response.status_code}")
         break
 
+# Sort repos by date created
 sorted_repos = sorted(all_repos, key=itemgetter('created_at'), reverse=True)
 
-# Static README content you want to keep above your repo list
+# Build main README content
 readme_content = """
 <a name="top"></a>
 
-# Hi, I'm <Your Name> 👋
+# Hi, I'm Sean 👋
 
 <table>
 <tr>
 <td>
-Introduce yourself here!
+I have a demonstrated proficiency in software development, with a proven track record of delivering high-quality solutions from ideation to deployment. My expertise includes developing and optimizing web applications, enhancing data pipelines, and implementing analytics to generate actionable insights. I possess a deep understanding of full-stack development, particularly in Python, JavaScript, React.js, and database management. My polished communication skills enable me to effectively articulate complex technical strategies.
+</td>
 </tr>
 </table>
 
@@ -92,35 +94,48 @@ Introduce yourself here!
 ### Repositories sorted by date created:
 """
 
+# Calculate pagination details
 repos_per_page = 30
 total_pages = (len(sorted_repos) + repos_per_page - 1) // repos_per_page
 
+# Loop through each page of repositories
 for page_num in range(total_pages):
-    readme_content += f"## Page {page_num + 1}\n\n"
+    current_page = page_num + 1
+
+    # Create anchor tags
+    readme_content += f'<a name="page{current_page}"></a>\n'
+
+    # Build the page headline
+    page_links = []
+    for i in range(1, total_pages + 1):
+        if i == current_page:
+            # Current page is plain text (no link)
+            page_links.append(f"{i}")
+        else:
+            # Other pages are links
+            page_links.append(f"[{i}](#page{i})")
+
+    heading_line = " • ".join(page_links)
+    readme_content += f"## Page {heading_line}\n\n"
 
     start_index = page_num * repos_per_page
     end_index = start_index + repos_per_page
     page_repos = sorted_repos[start_index:end_index]
 
+    # Add each repo
     for index, repo in enumerate(page_repos):
         formatted_date = repo['created_at'][:10]
-
-        # Reformat the date from YYYY-MM-DD to MM-DD-YYYY
         year, month, day = formatted_date.split('-')
         formatted_date = f"{month}-{day}-{year}"
 
-        # Get the primary language and its color
         language = repo['language']
         language_color = language_colors.get(language, "")
 
-        # Handle forked repos
+        # Handle fork info
         if repo['fork']:
-            # Check if parent info is available
             if 'parent' not in repo:
-                # Make additional request to get the full repo details
                 repo_details_url = repo['url']
                 repo_details_response = requests.get(repo_details_url, auth=(username, token))
-
                 if repo_details_response.status_code == 200:
                     repo_details = repo_details_response.json()
                     if 'parent' in repo_details:
@@ -137,31 +152,28 @@ for page_num in range(total_pages):
         else:
             fork_info = ""
 
-        # Add the repository to the README content
         readme_content += f"### [{repo['name']}]({repo['html_url']})\n"
         readme_content += f"{language_color} {language} • Created on {formatted_date}  \n{fork_info}\n\n"
 
-        # Omit separator if it's the last repository on the page
+        # Add a separator if it's not the last repo on the page
         if index < len(page_repos) - 1:
             readme_content += "---\n\n"
 
-# Add an anchor tag at the end for "Skip to Contributions"
+# Final anchors and closing sections
 readme_content += "\n<a name='contributions'></a>\n"
-
-# Add the "Back to Top" link at the bottom
 readme_content += """
 ### [Back to Top](#top)
 """
 
-# Write the generated content to the README.md file
+# Write the README file
 with open("README.md", "w") as readme_file:
     readme_file.write(readme_content)
 
-print("README.md updated with static content and paginated repositories.")
+print("README.md updated with custom heading pagination and repository listings.")
 
-# Stage the changes, commit, and push to GitHub using subprocess
+# Git commit & push
 subprocess.run(["git", "add", "README.md"], check=True)
-subprocess.run(["git", "commit", "-m", "updated sorted repos"], check=True)
+subprocess.run(["git", "commit", "-m", "Update README with new pagination format"], check=True)
 subprocess.run(["git", "push"], check=True)
 
 print("Changes committed and pushed to GitHub.")
