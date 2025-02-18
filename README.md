@@ -71,16 +71,16 @@ while True:
 # Sort repos by date created
 sorted_repos = sorted(all_repos, key=itemgetter('created_at'), reverse=True)
 
-# Build main README content
+# Static README content you want to keep above your repo list
 readme_content = """
 <a name="top"></a>
 
-# Hi, I'm Sean 👋
+# Hi, I'm <Your Name> 👋
 
 <table>
 <tr>
 <td>
-I have a demonstrated proficiency in software development, with a proven track record of delivering high-quality solutions from ideation to deployment...
+Introduce yourself here!
 </td>
 </tr>
 </table>
