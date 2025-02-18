@@ -56,7 +56,7 @@ readme_content = """
 <table>
 <tr>
 <td>
-I have a demonstrated proficiency in software development, with a proven track record of delivering high-quality solutions from ideation to deployment. My expertise includes developing and optimizing web applications, enhancing data pipelines, and implementing analytics to generate actionable insights. I possess a deep understanding of full-stack development, particularly in Python, JavaScript, React.js, and database management. My polished communication skills enable me to effectively articulate complex technical strategies.
+I have a demonstrated proficiency in software development, with a proven track record of delivering high-quality solutions from ideation to deployment...
 </td>
 </tr>
 </table>
@@ -78,17 +78,15 @@ total_pages = (len(sorted_repos) + repos_per_page - 1) // repos_per_page
 for page_num in range(total_pages):
     current_page = page_num + 1
 
-    # Create anchor tags
+    # Create anchor
     readme_content += f'<a name="page{current_page}"></a>\n'
 
     # Build the page headline
     page_links = []
     for i in range(1, total_pages + 1):
         if i == current_page:
-            # Current page is plain text (no link)
             page_links.append(f"{i}")
         else:
-            # Other pages are links
             page_links.append(f"[{i}](#page{i})")
 
     heading_line = " • ".join(page_links)
@@ -98,13 +96,27 @@ for page_num in range(total_pages):
     end_index = start_index + repos_per_page
     page_repos = sorted_repos[start_index:end_index]
 
-    # Add each repo
     for index, repo in enumerate(page_repos):
         formatted_date = repo['created_at'][:10]
         year, month, day = formatted_date.split('-')
         formatted_date = f"{month}-{day}-{year}"
 
+        # Always fetch from the /languages endpoint
+        languages_url = repo['languages_url']
+        lang_response = requests.get(languages_url, auth=(username, token))
         language = repo['language']
+        
+        if lang_response.status_code == 200:
+            lang_data = lang_response.json()
+            if lang_data:
+
+                # Find main language
+                main_lang = max(lang_data, key=lang_data.get)
+                
+                # Log language change if needed
+                if main_lang != language:
+                    print(f"Repo '{repo['name']}' language changed from {language} to {main_lang}")
+                language = main_lang
         language_color = language_colors.get(language, "")
 
         # Handle fork info
@@ -129,13 +141,12 @@ for page_num in range(total_pages):
             fork_info = ""
 
         readme_content += f"### [{repo['name']}]({repo['html_url']})\n"
-        readme_content += f"{language_color} {language} • Created on {formatted_date}  \n{fork_info}\n\n"
+        readme_content += f"{language_color} {language if language else 'None'} • Created on {formatted_date}  \n{fork_info}\n\n"
 
-        # Add a separator if it's not the last repo on the page
         if index < len(page_repos) - 1:
             readme_content += "---\n\n"
 
-# Final anchors and closing sections
+# Final anchors and closing
 readme_content += "\n<a name='contributions'></a>\n"
 readme_content += """
 ### [Back to Top](#top)
@@ -144,8 +155,6 @@ readme_content += """
 # Write the README file
 with open("README.md", "w") as readme_file:
     readme_file.write(readme_content)
-
-print("README.md updated with custom heading pagination and repository listings.")
 
 # Git commit & push
 subprocess.run(["git", "add", "README.md"], check=True)
