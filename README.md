@@ -182,7 +182,7 @@ with open("README.md", "w") as readme_file:
 
 # Git commit & push
 subprocess.run(["git", "add", "README.md"], check=True)
-subprocess.run(["git", "commit", "-m", "Update README with new pagination format"], check=True)
+subprocess.run(["git", "commit", "-m", "update sorted repos"], check=True)
 subprocess.run(["git", "push"], check=True)
 
 print("Changes committed and pushed to GitHub.")
