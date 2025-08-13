@@ -77,13 +77,7 @@ readme_content = """
 
 # Hi, I'm <Your Name> 👋
 
-<table>
-<tr>
-<td>
-Introduce yourself here!
-</td>
-</tr>
-</table>
+<Introduce yourself here!>
 
 ### Skills/Tools:
 
